@@ -1,0 +1,40 @@
+h1 {
+  font-family: "Kavoon", serif;
+  color: $pink;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: $backgroundColor;
+}
+.pink {
+  border: 2px solid $pink;
+  color: $lightPink;
+  box-shadow: 0 0 5px 2px $pink;
+  &:hover {
+    color: $backgroundColor;
+    background-color: $pink;
+  }
+}
+.blue {
+  border: 2px solid $blue;
+  color: $blue;
+  box-shadow: 0 0 5px 2px $blue;
+  &:hover {
+    color: $backgroundColor;
+    background-color: $blue;
+  }
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid $pink;
+  padding: 50px;
+  box-shadow: 0 0 10px 5px $pink;
+}
