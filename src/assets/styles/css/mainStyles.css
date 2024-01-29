@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Kavoon&family=Poppins:wght@300;400;500;600&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "JetBrains Mono", monospace;
+}
+
+body {
+  background-color: #040038;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: "Kavoon", serif;
+  color: #e406f4;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: #040038;
+}
+
+.pink {
+  border: 2px solid #e406f4;
+  color: #e582ec;
+  box-shadow: 0 0 5px 2px #e406f4;
+}
+.pink:hover {
+  color: #040038;
+  background-color: #e406f4;
+}
+
+.blue {
+  border: 2px solid #1585ee;
+  color: #1585ee;
+  box-shadow: 0 0 5px 2px #1585ee;
+}
+.blue:hover {
+  color: #040038;
+  background-color: #1585ee;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid #e406f4;
+  padding: 50px;
+  box-shadow: 0 0 10px 5px #e406f4;
+}
+
+/*# sourceMappingURL=mainStyles.css.map */
