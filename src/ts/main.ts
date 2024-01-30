@@ -39,6 +39,7 @@ const handleNavigate: (pathName: string) => void = (pathName) => {
   const roodDivChildren = rootDiv.children[0];
   rootDiv.removeChild(roodDivChildren);
   rootDiv.appendChild(childElement);
+  addNavigate();
 };
 
 addEventListener("popstate", () => {
@@ -49,6 +50,7 @@ const addNavigate: () => void = () => {
   const buttonsHTMLColection: HTMLCollectionOf<HTMLButtonElement> =
     rootDiv.getElementsByTagName("button");
   const buttons = [...buttonsHTMLColection];
+
   buttons.forEach((button) => {
     const adress: string | null = button.getAttribute("data-navigate");
     if (typeof adress === "string") {

@@ -28,6 +28,7 @@ const handleNavigate = (pathName) => {
     const roodDivChildren = rootDiv.children[0];
     rootDiv.removeChild(roodDivChildren);
     rootDiv.appendChild(childElement);
+    addNavigate();
 };
 addEventListener("popstate", () => {
     handleNavigate(window.location.pathname);
