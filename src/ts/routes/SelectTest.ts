@@ -22,6 +22,16 @@ const thirdTest: TestText = {
 };
 const buttons: TestText[] = [firstTest, secondTest, thirdTest];
 
+export const selectedText: TestText = { ...firstTest };
+
+export const getSelectedTest: (testTitle: string, content: string) => void = (
+  testTitle,
+  content
+) => {
+  selectedText.testTitle = testTitle;
+  selectedText.content = content;
+};
+
 const testsButtonsContainer: HTMLElement = document.createElement("div");
 const testCntainer: HTMLElement = document.createElement("div");
 const routeButtonsContainer: HTMLElement = document.createElement("div");
@@ -34,6 +44,7 @@ const handleSelectTest: (test: TestText, index: number) => void = (
   index
 ) => {
   testText.textContent = test.content;
+  getSelectedTest(test.testTitle, test.content);
 
   const testsButtonsArray = Array.from(testsButtonsContainer.children);
   testsButtonsArray.forEach((test, buttonIndex) => {
@@ -53,7 +64,8 @@ buttons.map((test, index) => {
   testButton.textContent = test.testTitle;
   testButton.classList.add(index === 0 ? "blue" : "pink");
 
-  testButton.addEventListener("click", () => {
+  testButton.addEventListener("click", (e) => {
+    selectedText.content = test.content;
     handleSelectTest(test, index);
   });
   testsButtonsContainer.appendChild(testButton);
@@ -71,6 +83,7 @@ backButton.setAttribute("data-navigate", "/");
 startButton.textContent = "start";
 startButton.classList.add("pink");
 startButton.setAttribute("data-navigate", "/Test");
+
 routeButtonsContainer.appendChild(backButton);
 routeButtonsContainer.appendChild(startButton);
 

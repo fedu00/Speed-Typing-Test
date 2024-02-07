@@ -18,6 +18,70 @@ h1 {
   flex-direction: column;
 }
 
+.test-section-container {
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  // align-items: center;
+}
+
+.selected-test-container {
+  // padding: 15px 20px;
+  // margin: 20px 0;
+  border: 2px solid $pink;
+  box-shadow: 0 0 5px 2px $pink;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  align-items: center;
+  // flex-grow: 0;
+  button {
+    flex-grow: 0;
+  }
+  p {
+    margin: 20px;
+    color: $pink;
+    .correct {
+      color: green;
+    }
+    .corrected {
+      color: orange;
+    }
+    .incorrect {
+      color: red;
+    }
+  }
+  textarea {
+    resize: none;
+    width: 90%;
+    margin: 20px;
+    font-size: 16px;
+    background-color: $transparentLightBlue;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    color: white;
+  }
+}
+
+.statistic-container {
+  width: 100%;
+  display: flex;
+  p {
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+    display: block;
+    flex-grow: 1;
+    border: 2px solid $pink;
+    color: $fontColor;
+  }
+}
+
 .test-container {
   p {
     padding: 15px 20px;

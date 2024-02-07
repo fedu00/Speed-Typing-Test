@@ -12,6 +12,14 @@ const thirdTest = {
     content: "Once upon a younger year When all our shadows disappeared The animals inside came out to play Went face to face with all our fears Learned our lessons through the tears Made memories we knew would never fade  One day, my father, he told me, 'Son, don't let it slip away' He took me in his arms, I heard him say 'When you get older your wild heart will live for younger days Think of me if ever you're afraid He said, 'One day, you'll leave this world behind So live a life you will remember' My father told me when I was just a child  'These are the nights that never die' My father told me.",
 };
 const buttons = [firstTest, secondTest, thirdTest];
+export const selectedText = Object.assign({}, firstTest);
+export const getSelectedTest = (testTitle, content) => {
+    console.log("testTitle", testTitle);
+    console.log("content", content);
+    console.log("buttons", buttons);
+    selectedText.testTitle = testTitle;
+    selectedText.content = content;
+};
 const testsButtonsContainer = document.createElement("div");
 const testCntainer = document.createElement("div");
 const routeButtonsContainer = document.createElement("div");
@@ -20,6 +28,7 @@ const backButton = document.createElement("button");
 const startButton = document.createElement("button");
 const handleSelectTest = (test, index) => {
     testText.textContent = test.content;
+    getSelectedTest(test.testTitle, test.content);
     const testsButtonsArray = Array.from(testsButtonsContainer.children);
     testsButtonsArray.forEach((test, buttonIndex) => {
         if (index != buttonIndex) {
@@ -36,7 +45,8 @@ buttons.map((test, index) => {
     const testButton = document.createElement("button");
     testButton.textContent = test.testTitle;
     testButton.classList.add(index === 0 ? "blue" : "pink");
-    testButton.addEventListener("click", () => {
+    testButton.addEventListener("click", (e) => {
+        selectedText.content = test.content;
         handleSelectTest(test, index);
     });
     testsButtonsContainer.appendChild(testButton);
