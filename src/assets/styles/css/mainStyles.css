@@ -35,6 +35,65 @@ h1 {
   flex-direction: column;
 }
 
+.test-section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.selected-test-container {
+  border: 2px solid #e406f4;
+  box-shadow: 0 0 5px 2px #e406f4;
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  align-items: center;
+}
+.selected-test-container button {
+  flex-grow: 0;
+}
+.selected-test-container p {
+  margin: 20px;
+  color: #e406f4;
+}
+.selected-test-container p .correct {
+  color: green;
+}
+.selected-test-container p .corrected {
+  color: orange;
+}
+.selected-test-container p .incorrect {
+  color: red;
+}
+.selected-test-container textarea {
+  resize: none;
+  width: 90%;
+  margin: 20px;
+  font-size: 16px;
+  background-color: rgba(102, 175, 243, 0.3411764706);
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  color: white;
+}
+
+.statistic-container {
+  width: 100%;
+  display: flex;
+}
+.statistic-container p {
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  display: block;
+  flex-grow: 1;
+  border: 2px solid #e406f4;
+  color: #4ef1a3;
+}
+
 .test-container p {
   padding: 15px 20px;
   border: 2px solid #e406f4;
