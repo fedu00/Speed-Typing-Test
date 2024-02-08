@@ -15,6 +15,29 @@ body {
   justify-content: flex-start;
 }
 
+.popup-background {
+  display: none;
+  background-color: rgba(94, 94, 94, 0.603);
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+
+.popup {
+  background-color: #040038;
+  padding: 60px 140px;
+  border: 2px solid #e406f4;
+  box-shadow: 0 0 5px 2px #e406f4;
+  display: flex;
+  flex-direction: column;
+}
+.popup p {
+  color: white;
+}
+
 h1 {
   font-family: "Kavoon", serif;
   color: #e406f4;

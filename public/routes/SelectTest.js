@@ -14,9 +14,6 @@ const thirdTest = {
 const buttons = [firstTest, secondTest, thirdTest];
 export const selectedText = Object.assign({}, firstTest);
 export const getSelectedTest = (testTitle, content) => {
-    console.log("testTitle", testTitle);
-    console.log("content", content);
-    console.log("buttons", buttons);
     selectedText.testTitle = testTitle;
     selectedText.content = content;
 };

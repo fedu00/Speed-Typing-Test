@@ -1,4 +1,3 @@
-console.log("one");
 import { Menu } from "./routes/Menu.js";
 import { SelectTest } from "./routes/SelectTest.js";
 import { Test } from "./routes/Test.js";

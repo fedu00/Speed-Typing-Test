@@ -1,5 +1,10 @@
 import { selectedText } from "./SelectTest.js";
 export const Test = document.createElement("div");
+const tes = document.querySelector(".test-button");
+tes === null || tes === void 0 ? void 0 : tes.addEventListener("click", () => {
+    const x = localStorage["speedTest"] || [];
+    console.log("x", x);
+});
 const textForTest = selectedText;
 let lettersCounter = 0;
 let mistakesCounter = 0;
@@ -25,6 +30,45 @@ const handleStartTimer = () => {
         timeElement.textContent = `time left: ${startTime}s`;
     }, 1000);
     return startInterval;
+};
+const handleEndTest = () => {
+    const popupContainerElement = document.querySelector(".popup");
+    const popupTitleScoreSpan = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("h1 > span");
+    const popupTimeSpan = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("p:nth-child(2) > span");
+    const popupCorrectionsSpan = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("p:nth-child(3) > span");
+    const popupMistakesSpan = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("p:nth-child(4) > span");
+    const popuplpsSpan = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("p:nth-child(5) > span");
+    const popupBackgroundElement = document.querySelector(".popup-background");
+    popupTitleScoreSpan.textContent = `${17}%`;
+    popupTimeSpan.textContent = `${startTime}`;
+    popupCorrectionsSpan.textContent = `${correctionCounter}`;
+    popupMistakesSpan.textContent = `${mistakesCounter}`;
+    popuplpsSpan.textContent = `${Math.round((lettersCounter / startTime) * 10) / 10}`;
+    popupBackgroundElement.style.display = "flex";
+    clearInterval(timerId);
+    const scoreButtonElement = popupContainerElement === null || popupContainerElement === void 0 ? void 0 : popupContainerElement.querySelector("button");
+    console.log(scoreButtonElement);
+    scoreButtonElement.addEventListener("click", () => {
+        const obj = {
+            score: "17",
+            time: `${startTime}`,
+            speed: `${Math.round((lettersCounter / startTime) * 10) / 10}`,
+            corrections: `${correctionCounter}`,
+            mistakes: `${mistakesCounter}`,
+            letters: `${lettersCounter}`,
+        };
+        console.log("obj", obj);
+        const localStorageArray = localStorage["speedTest"] || [];
+        const localStorageParse = JSON.parse(localStorageArray);
+        if (localStorageParse.length < 1) {
+            localStorage.setItem("speedTest", JSON.stringify([obj]));
+        }
+        else if (localStorageParse.length >= 1) {
+            localStorageParse.push(obj);
+            localStorage.setItem("speedTest", JSON.stringify(localStorageParse));
+        }
+        popupBackgroundElement.style.display = "none";
+    });
 };
 const handleResetTest = () => {
     const allTextLettersNumber = textForTest.content.length;
@@ -72,9 +116,13 @@ const handleStartTest = () => {
     testInput.addEventListener("input", (e) => {
         const backspaceEvent = e.inputType === "deleteContentBackward";
         const currentLetter = e.target.value.length;
-        letterslement.textContent = `letters: ${currentLetter}/${allTextLettersNumber}`;
-        const lethersPerSecond = Math.round((currentLetter / startTime) * 10) / 10;
+        lettersCounter = currentLetter;
+        letterslement.textContent = `letters: ${lettersCounter}/${allTextLettersNumber}`;
+        const lethersPerSecond = Math.round((lettersCounter / startTime) * 10) / 10;
         lpsElement.textContent = `lps: ${lethersPerSecond} `;
+        if (currentLetter === allTextLettersNumber) {
+            handleEndTest();
+        }
         if (!backspaceEvent) {
             const spanLetter = arrayLetters[currentLetter - 1];
             const spanLetterContent = spanLetter.textContent;
@@ -117,6 +165,7 @@ exitButton.classList.add("blue");
 exitButton.textContent = "exit test";
 exitButton.addEventListener("click", () => {
     location.reload();
+    clearInterval(timerId);
 });
 buttonContainer.appendChild(tryAgainButton);
 buttonContainer.appendChild(exitButton);
