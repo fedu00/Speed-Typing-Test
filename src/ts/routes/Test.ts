@@ -1,6 +1,13 @@
 import { selectedText } from "./SelectTest.js";
 export const Test: HTMLElement = document.createElement("div");
 
+//tylko do testów
+const tes = document.querySelector(".test-button");
+tes?.addEventListener("click", () => {
+  const x = localStorage["speedTest"] || [];
+  console.log("x", x);
+});
+
 const textForTest = selectedText;
 let lettersCounter: number = 0;
 let mistakesCounter: number = 0;
@@ -28,6 +35,67 @@ const handleStartTimer = (): number => {
     timeElement.textContent = `time left: ${startTime}s`;
   }, 1000);
   return startInterval;
+};
+
+const handleEndTest = () => {
+  const popupContainerElement = document.querySelector(".popup");
+  const popupTitleScoreSpan = popupContainerElement?.querySelector(
+    "h1 > span"
+  ) as HTMLElement;
+  const popupTimeSpan = popupContainerElement?.querySelector(
+    "p:nth-child(2) > span"
+  ) as HTMLElement;
+  const popupCorrectionsSpan = popupContainerElement?.querySelector(
+    "p:nth-child(3) > span"
+  ) as HTMLElement;
+  const popupMistakesSpan = popupContainerElement?.querySelector(
+    "p:nth-child(4) > span"
+  ) as HTMLElement;
+  const popuplpsSpan = popupContainerElement?.querySelector(
+    "p:nth-child(5) > span"
+  ) as HTMLElement;
+  const popupBackgroundElement = document.querySelector(
+    ".popup-background"
+  ) as HTMLElement;
+
+  popupTitleScoreSpan.textContent = `${17}%`;
+  popupTimeSpan.textContent = `${startTime}`;
+  popupCorrectionsSpan.textContent = `${correctionCounter}`;
+  popupMistakesSpan.textContent = `${mistakesCounter}`;
+  popuplpsSpan.textContent = `${
+    Math.round((lettersCounter / startTime) * 10) / 10
+  }`;
+  popupBackgroundElement.style.display = "flex";
+  clearInterval(timerId);
+
+  const scoreButtonElement = popupContainerElement?.querySelector(
+    "button"
+  ) as HTMLElement;
+  console.log(scoreButtonElement);
+
+  scoreButtonElement.addEventListener("click", () => {
+    const obj = {
+      score: "17",
+      time: `${startTime}`,
+      speed: `${Math.round((lettersCounter / startTime) * 10) / 10}`,
+      corrections: `${correctionCounter}`,
+      mistakes: `${mistakesCounter}`,
+      letters: `${lettersCounter}`,
+    };
+
+    console.log("obj", obj);
+
+    const localStorageArray = localStorage["speedTest"] || [];
+    const localStorageParse = JSON.parse(localStorageArray);
+
+    if (localStorageParse.length < 1) {
+      localStorage.setItem("speedTest", JSON.stringify([obj]));
+    } else if (localStorageParse.length >= 1) {
+      localStorageParse.push(obj);
+      localStorage.setItem("speedTest", JSON.stringify(localStorageParse));
+    }
+    popupBackgroundElement.style.display = "none";
+  });
 };
 
 const handleResetTest = (): void => {
@@ -87,10 +155,17 @@ const handleStartTest = (): void => {
   testInput.addEventListener("input", (e: any) => {
     const backspaceEvent: boolean = e.inputType === "deleteContentBackward";
     const currentLetter: number = e.target.value.length;
-    letterslement.textContent = `letters: ${currentLetter}/${allTextLettersNumber}`;
+    lettersCounter = currentLetter;
+    letterslement.textContent = `letters: ${lettersCounter}/${allTextLettersNumber}`;
     const lethersPerSecond: number =
-      Math.round((currentLetter / startTime) * 10) / 10;
+      Math.round((lettersCounter / startTime) * 10) / 10;
     lpsElement.textContent = `lps: ${lethersPerSecond} `;
+
+    // handleEndTest();
+
+    if (currentLetter === allTextLettersNumber) {
+      handleEndTest();
+    }
     if (!backspaceEvent) {
       const spanLetter: HTMLElement = arrayLetters[currentLetter - 1];
       const spanLetterContent = spanLetter.textContent;
@@ -135,6 +210,7 @@ exitButton.classList.add("blue");
 exitButton.textContent = "exit test";
 exitButton.addEventListener("click", () => {
   location.reload();
+  clearInterval(timerId);
 });
 
 buttonContainer.appendChild(tryAgainButton);

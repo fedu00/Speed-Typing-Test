@@ -1,3 +1,25 @@
+.popup-background {
+  display: none;
+  background-color: $shadowBackground;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+
+.popup {
+  background-color: $backgroundColor;
+  padding: 60px 140px;
+  border: 2px solid $pink;
+  box-shadow: 0 0 5px 2px $pink;
+  display: flex;
+  flex-direction: column;
+  p {
+    color: white;
+  }
+}
 h1 {
   font-family: "Kavoon", serif;
   color: $pink;
