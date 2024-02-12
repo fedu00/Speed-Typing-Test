@@ -26,6 +26,23 @@ body {
   z-index: 2;
 }
 
+.score-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.score-board-container table {
+  border: 2px solid #e406f4;
+  box-shadow: 0 0 5px 2px #e406f4;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.score-board-container table tr th {
+  border: 2px solid #e406f4;
+  padding: 10px 20px;
+  color: #4ef1a3;
+}
+
 .popup {
   background-color: #040038;
   padding: 60px 140px;

@@ -9,6 +9,23 @@
   z-index: 2;
 }
 
+.score-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  table {
+    border: 2px solid $pink;
+    box-shadow: 0 0 5px 2px $pink;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    tr th {
+      border: 2px solid $pink;
+      padding: 10px 20px;
+      color: $fontColor;
+    }
+  }
+}
+
 .popup {
   background-color: $backgroundColor;
   padding: 60px 140px;
