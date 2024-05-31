@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/fedu00/Speed-Typing-Test/issues"
   },
-  "homepage": "https://github.com/fedu00/Speed-Typing-Test#readme"
+  "homepage": "https://github.com/fedu00/Speed-Typing-Test#readme",
+  "devDependencies": {
+    "@types/node": "^20.12.13"
+  }
 }

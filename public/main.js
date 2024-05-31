@@ -16,6 +16,7 @@ const routes = {
         component: ScoreBoard,
     },
 };
+console.log("a");
 const rootDiv = document.getElementById("root");
 const childElement = routes["/"].component;
 rootDiv.appendChild(childElement);

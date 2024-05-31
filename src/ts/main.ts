@@ -25,6 +25,8 @@ const routes: RoutesType = {
   },
 };
 
+console.log("a");
+
 const rootDiv = document.getElementById("root") as HTMLElement;
 
 const childElement =
