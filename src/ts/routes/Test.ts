@@ -29,7 +29,7 @@ const correctionElement: HTMLElement = document.createElement("p");
 const letterslement: HTMLElement = document.createElement("p");
 const lpsElement: HTMLElement = document.createElement("p");
 
-const handleStartTimer = (): number => {
+const handleStartTimer = (): any => {
   const startInterval = setInterval(() => {
     startTime++;
     timeElement.textContent = `time left: ${startTime}s`;
