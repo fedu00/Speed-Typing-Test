@@ -1,54 +1,124 @@
-.popup-background {
-  display: none;
-  background-color: $shadowBackground;
-  position: fixed;
-  align-items: center;
-  justify-content: center;
+// .main-container {
+//   height: 100vh;
+//   width: 100vw;
+//   background-image: linear-gradient($backgroundColor, $pink);
+// }
+
+// .popup-background {
+//   display: none;
+//   background-color: $shadowBackground;
+//   position: fixed;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+//   width: 100vw;
+//   z-index: 2;
+// }
+
+// .popup {
+//   background-color: $backgroundColor;
+//   padding: 60px 140px;
+//   border: 2px solid $pink;
+//   box-shadow: 0 0 5px 2px $pink;
+//   display: flex;
+//   flex-direction: column;
+//   p {
+//     color: white;
+//   }
+// }
+
+// .title {
+//   font-size: 80px;
+//   margin: 120px;
+// }
+
+////////////////////////////////////////////////
+///
+///
+.page-container {
   height: 100vh;
   width: 100vw;
-  z-index: 2;
-}
-
-.score-board-container {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
-  table {
-    border: 2px solid $pink;
-    box-shadow: 0 0 5px 2px $pink;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-    tr th {
-      border: 2px solid $pink;
-      padding: 10px 20px;
-      color: $fontColor;
-    }
+  justify-content: center;
+  // border-bottom: 2px solid red;
+  h1 {
+    // font-family: "Kavoon", serif;
+    font-family: "Press Start 2P", system-ui;
+    color: $pink;
+  }
+  > h1 {
+    font-size: 50px;
+    margin-bottom: 60px;
   }
 }
 
-.popup {
-  background-color: $backgroundColor;
-  padding: 60px 140px;
-  border: 2px solid $pink;
-  box-shadow: 0 0 5px 2px $pink;
+.show-page {
   display: flex;
-  flex-direction: column;
-  p {
-    color: white;
+}
+
+button {
+  padding: 8px 16px;
+  margin: 8px;
+  cursor: pointer;
+  transition: 0.4s;
+  background-color: $backgroundColor;
+}
+
+.pink {
+  border: 2px solid $pink;
+  color: $lightPink;
+  box-shadow: 0 0 5px 2px $pink;
+  &:hover {
+    color: $backgroundColor;
+    background-color: $pink;
   }
 }
-h1 {
-  font-family: "Kavoon", serif;
-  color: $pink;
+.blue {
+  border: 2px solid $blue;
+  color: $blue;
+  box-shadow: 0 0 5px 2px $blue;
+  &:hover {
+    color: $backgroundColor;
+    background-color: $blue;
+  }
 }
 
-.title {
-  font-size: 80px;
-  margin: 120px;
+.menu-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid $pink;
+  padding: 50px 40px;
+  box-shadow: 0 0 10px 5px $pink;
+  > h1 {
+    margin-bottom: 20px;
+  }
 }
 
+///////////////
 .select-test-container {
   display: flex;
+}
+.test-container {
+  background-color: $backgroundColor;
+  p {
+    padding: 15px 20px;
+    border: 2px solid $pink;
+    box-shadow: 0 0 5px 2px $pink;
+    color: $fontColor;
+    width: 700px;
+    height: 300px;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+    button {
+      margin: 20px;
+    }
+  }
 }
 
 .test-buttons-container {
@@ -57,6 +127,8 @@ h1 {
   flex-direction: column;
 }
 
+//////
+/// Test page
 .test-section-container {
   display: flex;
 
@@ -67,7 +139,7 @@ h1 {
 
 .selected-test-container {
   // padding: 15px 20px;
-  // margin: 20px 0;
+  margin: 20px 0;
   border: 2px solid $pink;
   box-shadow: 0 0 5px 2px $pink;
   display: flex;
@@ -94,6 +166,7 @@ h1 {
   textarea {
     resize: none;
     width: 90%;
+    height: 160px;
     margin: 20px;
     font-size: 16px;
     background-color: $transparentLightBlue;
@@ -116,64 +189,29 @@ h1 {
     text-align: center;
     display: block;
     flex-grow: 1;
-    border: 2px solid $pink;
+    border-top: 2px solid $pink;
+    border-right: 2px solid $pink;
     color: $fontColor;
+  }
+  p:nth-child(5) {
+    border-right: none;
   }
 }
 
-.test-container {
-  p {
-    padding: 15px 20px;
+////////////////// SCORE
+.score-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  table {
     border: 2px solid $pink;
     box-shadow: 0 0 5px 2px $pink;
-    color: $fontColor;
-    width: 700px;
-    height: 300px;
-  }
-  div {
-    display: flex;
-    justify-content: center;
-    button {
-      margin: 20px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    tr th {
+      border: 2px solid $pink;
+      padding: 10px 20px;
+      color: $fontColor;
     }
-  }
-}
-
-button {
-  padding: 8px 16px;
-  margin: 8px;
-  cursor: pointer;
-  transition: 0.4s;
-  background-color: $backgroundColor;
-}
-.pink {
-  border: 2px solid $pink;
-  color: $lightPink;
-  box-shadow: 0 0 5px 2px $pink;
-  &:hover {
-    color: $backgroundColor;
-    background-color: $pink;
-  }
-}
-.blue {
-  border: 2px solid $blue;
-  color: $blue;
-  box-shadow: 0 0 5px 2px $blue;
-  &:hover {
-    color: $backgroundColor;
-    background-color: $blue;
-  }
-}
-
-.menu-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  border: 2px solid $pink;
-  padding: 50px;
-  box-shadow: 0 0 10px 5px $pink;
-  h1 {
-    margin-bottom: 50px;
   }
 }
