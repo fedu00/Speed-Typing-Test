@@ -152,6 +152,7 @@ button {
   box-shadow: none;
   border: none;
   color: white;
+  padding: 10px;
 }
 
 .statistic-container {
@@ -187,6 +188,49 @@ button {
   border: 2px solid #e406f4;
   padding: 10px 20px;
   color: #4ef1a3;
+}
+
+.popup-background {
+  display: none;
+  background-color: rgba(94, 94, 94, 0.603);
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2;
+}
+
+.popup {
+  background-color: #181726;
+  padding: 60px 140px;
+  border: 2px solid #e406f4;
+  box-shadow: 0 0 5px 2px #e406f4;
+  display: flex;
+  flex-direction: column;
+}
+.popup h1 {
+  color: #e406f4;
+  font-family: "Press Start 2P", system-ui;
+}
+.popup input {
+  margin: 14px 0;
+  background-color: rgba(102, 175, 243, 0.3411764706);
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+.popup p {
+  color: #e406f4;
+}
+.popup button {
+  margin-top: 16px;
 }
 
 /*# sourceMappingURL=mainStyles.css.map */
